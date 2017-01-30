@@ -1,17 +1,17 @@
 package main;
 
-import domain.Current;
+import gui.Window;
+import others.CitiesWithWeather;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		String city = "London";
-
-		Weather weather = new Weather();
-		Current currentWeather = weather.getWeather(city);
+		//Weather weather = new Weather();
+		//Current currentWeather = weather.getWeather(city);
 		
-		System.out.println(currentWeather.getCity().getName());
-
+		Window window = new Window(CitiesWithWeather.createCitiesList("/home/mjab/git/weather/city.list.json"));
+		window.setVisible(true);
+		
 	}
 }

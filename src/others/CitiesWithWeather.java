@@ -3,11 +3,12 @@ package others;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class Main {
+public class CitiesWithWeather {
 	
 	public static BufferedReader readFile(String path) {
 		FileReader fr = null;
@@ -24,7 +25,7 @@ public class Main {
 	}
 
 	public static ArrayList<City> createCitiesList(String file) {
-		BufferedReader br = Main.readFile(file);
+		BufferedReader br = CitiesWithWeather.readFile(file);
 
 		ArrayList<City> cities = new ArrayList<City>();
 		String line = null;
@@ -64,15 +65,8 @@ public class Main {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
+		Collections.sort(cities);
 		return cities;
 	}
 	
-	public static void main(String[] args) {
-		String file = "/home/miszx/git/korepetycje/weather/city.list.json";
-		ArrayList<City> cities = new ArrayList<City>();
-		cities = Main.createCitiesList(file);
-		
-		System.out.println(cities.size());		
-		
-	}
 }

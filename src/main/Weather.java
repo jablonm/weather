@@ -23,14 +23,14 @@ import domain.Current;
 public class Weather {
 
 	private static String URL = "http://api.openweathermap.org/data/2.5/weather?"
-			+ "mode=xml&APPID=01d244afe0bcb3eee74b8d7ea179b35a&q=";
+			+ "mode=xml&APPID=01d244afe0bcb3eee74b8d7ea179b35a&id=";
 	
-	public Current getWeather(String city) {
+	public Current getWeather(Long id) {
 		InputStream content = null;
 		Current weather = null;
 		
 		try {
-			content = getContentFromUrl(URL + city);
+			content = getContentFromUrl(URL + id.toString());
 			weather = createWeather(content);
 		} catch (IOException e) {
 			e.printStackTrace();

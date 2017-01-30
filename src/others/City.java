@@ -1,6 +1,6 @@
 package others;
 
-public class City {
+public class City implements Comparable<City> {
 
 	private Long id;
 	private String name;
@@ -46,4 +46,13 @@ public class City {
 		this.coord = coord;
 	}
 
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	public int compareTo(City o) {
+		return o.getName().compareTo(this.getName());
+	}
+	
 }
